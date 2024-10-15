@@ -1,1 +1,1 @@
-﻿Console.WriteLine("Kacper Świrkosz");
+﻿Console.WriteLine("Hello WSEI");
