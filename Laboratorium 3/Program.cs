@@ -9,7 +9,9 @@ class Program
         // Zadanie3();
         // Zadanie4();
         // Zadanie5();
-        Zadanie6();
+        // Zadanie6();
+        // Zadanie7();
+        Zadanie8();
     }
 
     public static void Zadanie1()
@@ -136,5 +138,77 @@ class Program
         }
 
         Console.WriteLine($"Price: {sellPrice}");
+    }
+
+    public static void Zadanie7()
+    {
+        int decimalNumber = 11;
+
+        switch (decimalNumber)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+                string[] tens = { "", "X", "XX" };
+                string[] units = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+
+                Console.WriteLine(tens[decimalNumber / 10] + units[decimalNumber % 10]);
+                break;
+            case 0:
+                Console.WriteLine("Rzymianie nie znali zera!");
+                break;
+            default:
+                Console.WriteLine("Nie obsługuję liczb spoza zakresu od 1 do 20!");
+                break;
+        }
+    }
+
+    public static void Zadanie8()
+    {
+        char hex = '9';
+
+        switch (char.ToUpper(hex))
+        {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                Console.WriteLine(hex - '0');
+                break;
+            case 'A':
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+                Console.WriteLine(hex - 'A' + 10);
+                break;
+            default:
+                Console.WriteLine("To nie jest cyfra szesnastkowa");
+                break;
+        }
     }
 }
