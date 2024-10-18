@@ -7,7 +7,9 @@ class Program
         // Zadanie1();
         // Zadanie2();
         // Zadanie3();
-        Zadanie4();
+        // Zadanie4();
+        // Zadanie5();
+        Zadanie6();
     }
 
     public static void Zadanie1()
@@ -66,5 +68,73 @@ class Program
             || ((x == rx || x == rx + width) && y <= ry && y >= ry - height);
 
         Console.WriteLine(isOnBorder);
+    }
+
+    public static void Zadanie5()
+    {
+        double x = 1.34;
+        double a = 2.5;
+        double b = -0.5;
+        double c = 1.5;
+        double delta = Math.Pow(b, 2) - 4 * a * c;
+        double epsilon = 1e-10;
+
+        if (Math.Abs(delta) <= epsilon)
+        {
+            Console.WriteLine($"x_1 = x_2 = {-b / (2 * a)}");
+        }
+        else if (delta > epsilon)
+        {
+            double sqrtDelta = Math.Sqrt(delta);
+
+            Console.WriteLine($"x_1 = {(-b - sqrtDelta) / (2 * a)}");
+            Console.WriteLine($"x_2 = {(-b + sqrtDelta) / (2 * a)}");
+        }
+        else
+        {
+            Console.WriteLine("Nie można otrzymać pierwiastków rzeczywistych!");
+        }
+    }
+
+    public static void Zadanie6()
+    {
+        int code = 16;
+        int quantity = 21;
+        decimal price = 3.5m;
+        decimal sellPrice;
+
+        sellPrice = 0m;
+
+        if (code < 10)
+        {
+            sellPrice = price;
+        }
+        else if (code <= 15)
+        {
+            sellPrice = price * 0.95m;
+        }
+        else
+        {
+            if (quantity <= 10)
+            {
+                sellPrice = price * 1.05m;
+            }
+            else if (quantity <= 20)
+            {
+                sellPrice = price;
+            }
+            else if (quantity < 100)
+            {
+                decimal discountMultiplier = (decimal)quantity / 10 / 100 + 1;
+
+                sellPrice = Math.Round(price * discountMultiplier, 2);
+            }
+            else
+            {
+                sellPrice = price * 0.90m;
+            }
+        }
+
+        Console.WriteLine($"Price: {sellPrice}");
     }
 }
