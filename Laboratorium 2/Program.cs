@@ -36,7 +36,7 @@ class Program
     static void Zadanie3()
     {
         double area = 189;
-        double radius = area >= 0 ? Math.Sqrt(189 / Math.PI) : 0;
+        double radius = area >= 0 ? Math.Sqrt(area / Math.PI) : 0;
 
         Console.WriteLine(radius);
     }
