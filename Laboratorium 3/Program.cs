@@ -14,46 +14,41 @@ class Program
         Zadanie8();
     }
 
-    public static void Zadanie1()
+    static void Zadanie1()
     {
-        decimal balans = 56;
+        decimal balance = 56m;
         bool isCreditCardValid = false;
-        decimal price = 45;
-        bool canPay;
-
-        canPay = balans >= price && isCreditCardValid;
+        decimal price = 45m;
+        bool canPay = balance >= price && isCreditCardValid;
 
         Console.WriteLine(canPay);
     }
 
-    public static void Zadanie2()
+    static void Zadanie2()
     {
         double a = 5;
         double b = 1;
         double c = 3;
-        bool isTriangle;
-
-        isTriangle = a + b > c && b + c > a && c + a > b; // twierdzenie o nierówności trójkąta
+        // Twierdzenie o nierówności trójkąta
+        bool isTriangle = a + b > c && b + c > a && c + a > b;
 
         Console.WriteLine(isTriangle);
     }
 
-    public static void Zadanie3()
+    static void Zadanie3()
     {
         double cx = 2.56;
         double cy = 4.6;
         double cradius = 5;
         double x = 6.4;
         double y = 2.234;
-        bool isOutside;
-
-        // (x - a)^2 + (y - b)^2 = r^2
-        isOutside = Math.Pow(x - cx, 2) + Math.Pow(y - cy, 2) <= Math.Pow(cradius, 2);
+        // Równanie okręgu: (x - a)^2 + (y - b)^2 = r^2
+        bool isOutside = Math.Pow(x - cx, 2) + Math.Pow(y - cy, 2) <= Math.Pow(cradius, 2);
 
         Console.WriteLine(isOutside);
     }
 
-    public static void Zadanie4()
+    static void Zadanie4()
     {
         int rx = 56;
         int ry = 34;
@@ -61,9 +56,7 @@ class Program
         int height = 12;
         int x = 23;
         int y = 11;
-        bool isOnBorder;
-
-        isOnBorder =
+        bool isOnBorder =
             // Górna i dolna krawędź
             ((y == ry || y == ry - height) && x >= rx && x <= rx + width)
             // Lewa i prawa krawędź
@@ -72,9 +65,9 @@ class Program
         Console.WriteLine(isOnBorder);
     }
 
-    public static void Zadanie5()
+    static void Zadanie5()
     {
-        double x = 1.34;
+        // double x = 1.34;
         double a = 2.5;
         double b = -0.5;
         double c = 1.5;
@@ -98,117 +91,82 @@ class Program
         }
     }
 
-    public static void Zadanie6()
+    static void Zadanie6()
     {
-        int code = 16;
-        int quantity = 21;
+        int code = 4;
+        int quantity = 11;
         decimal price = 3.5m;
-        decimal sellPrice;
+        decimal sellPrice = price;
+        decimal discountMultiplier = 1.00m;
 
-        sellPrice = 0m;
-
-        if (code < 10)
+        if (code >= 10 && code <= 15)
         {
-            sellPrice = price;
+            discountMultiplier = 0.95m;
         }
-        else if (code <= 15)
-        {
-            sellPrice = price * 0.95m;
-        }
-        else
+        else if (code >= 16)
         {
             if (quantity <= 10)
             {
-                sellPrice = price * 1.05m;
+                discountMultiplier = 1.05m;
             }
-            else if (quantity <= 20)
+            else if (quantity > 20 && quantity < 100)
             {
-                sellPrice = price;
+                discountMultiplier -= Math.Floor((decimal)quantity / 10) / 100;
             }
-            else if (quantity < 100)
+            else if (quantity >= 100)
             {
-                decimal discountMultiplier = (decimal)quantity / 10 / 100 + 1;
-
-                sellPrice = Math.Round(price * discountMultiplier, 2);
-            }
-            else
-            {
-                sellPrice = price * 0.90m;
+                discountMultiplier = 0.90m;
             }
         }
+
+        sellPrice = Math.Round(price * discountMultiplier, 2, MidpointRounding.AwayFromZero);
 
         Console.WriteLine($"Price: {sellPrice}");
     }
 
-    public static void Zadanie7()
+    static void Zadanie7()
     {
         int decimalNumber = 11;
+        string[] tens = { "", "X", "XX" };
+        string[] units = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
-        switch (decimalNumber)
+        if (decimalNumber >= 1 && decimalNumber <= 20)
         {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-            case 13:
-            case 14:
-            case 15:
-            case 16:
-            case 17:
-            case 18:
-            case 19:
-            case 20:
-                string[] tens = { "", "X", "XX" };
-                string[] units = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+            Console.WriteLine(tens[decimalNumber / 10] + units[decimalNumber % 10]);
 
-                Console.WriteLine(tens[decimalNumber / 10] + units[decimalNumber % 10]);
-                break;
-            case 0:
-                Console.WriteLine("Rzymianie nie znali zera!");
-                break;
-            default:
-                Console.WriteLine("Nie obsługuję liczb spoza zakresu od 1 do 20!");
-                break;
+            return;
         }
+
+        if (decimalNumber == 0)
+        {
+            Console.WriteLine("Rzymianie nie znali zera!");
+
+            return;
+        }
+
+        Console.WriteLine("Nie obsługuję liczb spoza zakresu od 1 do 20!");
     }
 
-    public static void Zadanie8()
+    static void Zadanie8()
     {
         char hex = '9';
 
-        switch (char.ToUpper(hex))
+        if (hex >= '0' && hex <= '9')
         {
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                Console.WriteLine(hex - '0');
-                break;
-            case 'A':
-            case 'B':
-            case 'C':
-            case 'D':
-            case 'E':
-            case 'F':
-                Console.WriteLine(hex - 'A' + 10);
-                break;
-            default:
-                Console.WriteLine("To nie jest cyfra szesnastkowa");
-                break;
+            Console.WriteLine(hex - '0');
+
+            return;
         }
+
+        hex = char.ToUpper(hex);
+
+        if (hex >= 'A' && hex <= 'F')
+        {
+            Console.WriteLine(hex - 'A' + 10);
+
+            return;
+        }
+
+        Console.WriteLine("To nie jest cyfra szesnastkowa");
     }
 }
