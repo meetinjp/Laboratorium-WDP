@@ -2,10 +2,9 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        // Zadanie1();
-        Zadanie2();
+        Zadanie3();
     }
 
     static void Zadanie1()
@@ -44,5 +43,17 @@ class Program
         {
             Console.WriteLine(arr[i]);
         }
+    }
+
+    static void Zadanie3()
+    {
+        int sum = 0;
+
+        while (int.TryParse(Console.ReadLine(), out int value))
+        {
+            sum += value;
+        }
+
+        Console.WriteLine($"Suma: {sum}");
     }
 }

@@ -2,15 +2,8 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        // Zadanie1();
-        // Zadanie2();
-        // Zadanie3();
-        // Zadanie4();
-        // Zadanie5();
-        // Zadanie6();
-        // Zadanie7();
         Zadanie8();
     }
 
@@ -42,7 +35,7 @@ class Program
         double cradius = 5;
         double x = 6.4;
         double y = 2.234;
-        // Równanie okręgu: (x - a)^2 + (y - b)^2 = r^2
+        // Równanie okręgu
         bool isOutside = Math.Pow(x - cx, 2) + Math.Pow(y - cy, 2) <= Math.Pow(cradius, 2);
 
         Console.WriteLine(isOutside);
@@ -67,7 +60,6 @@ class Program
 
     static void Zadanie5()
     {
-        // double x = 1.34;
         double a = 2.5;
         double b = -0.5;
         double c = 1.5;
@@ -77,18 +69,21 @@ class Program
         if (Math.Abs(delta) <= epsilon)
         {
             Console.WriteLine($"x_1 = x_2 = {-b / (2 * a)}");
+
+            return;
         }
-        else if (delta > epsilon)
+
+        if (delta > epsilon)
         {
             double sqrtDelta = Math.Sqrt(delta);
 
             Console.WriteLine($"x_1 = {(-b - sqrtDelta) / (2 * a)}");
             Console.WriteLine($"x_2 = {(-b + sqrtDelta) / (2 * a)}");
+
+            return;
         }
-        else
-        {
-            Console.WriteLine("Nie można otrzymać pierwiastków rzeczywistych!");
-        }
+
+        Console.WriteLine("Nie można otrzymać pierwiastków rzeczywistych!");
     }
 
     static void Zadanie6()

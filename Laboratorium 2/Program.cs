@@ -2,13 +2,8 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        // Zadanie1();
-        // Zadanie2();
-        // Zadanie3();
-        // Zadanie4();
-        // Zadanie5();
         Zadanie6();
     }
 
