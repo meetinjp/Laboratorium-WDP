@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Zadanie3();
+        Zadanie5();
     }
 
     static void Zadanie1()
@@ -55,5 +55,47 @@ class Program
         }
 
         Console.WriteLine($"Suma: {sum}");
+    }
+
+    static void Zadanie4()
+    {
+        double[,] arr =
+        {
+            { 1.1, 3.5, 2.56 },
+            { 1.4, 34, 7 },
+            { 1.5, 56, 2.6 },
+        };
+        double b = 4.1;
+
+        foreach (var number in arr)
+        {
+            if (number <= b)
+            {
+                continue;
+            }
+
+            Console.WriteLine(number);
+        }
+    }
+
+    static void Zadanie5()
+    {
+        int height = 0;
+
+        do
+        {
+            Console.Write("n = ");
+            int.TryParse(Console.ReadLine(), out height);
+
+            if (height < 0)
+            {
+                Console.WriteLine("Wpisałeś liczbę ujemną!");
+            }
+        } while (height <= 0);
+
+        for (int n = 1; n <= height; ++n)
+        {
+            Console.WriteLine(new string('#', n));
+        }
     }
 }
