@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Zadanie8();
+        Zadanie3();
     }
 
     static void Zadanie1()
@@ -36,7 +36,7 @@ class Program
         double x = 6.4;
         double y = 2.234;
         // Równanie okręgu
-        bool isOutside = Math.Pow(x - cx, 2) + Math.Pow(y - cy, 2) <= Math.Pow(cradius, 2);
+        bool isOutside = Math.Pow(x - cx, 2) + Math.Pow(y - cy, 2) > Math.Pow(cradius, 2);
 
         Console.WriteLine(isOutside);
     }
