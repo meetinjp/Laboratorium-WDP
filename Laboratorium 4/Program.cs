@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Zadanie5();
+        Zadanie6();
     }
 
     static void Zadanie1()
@@ -96,6 +96,36 @@ class Program
         for (int n = 1; n <= height; ++n)
         {
             Console.WriteLine(new string('#', n));
+        }
+    }
+
+    static void Zadanie6()
+    {
+        Console.Write("n = ");
+
+        int n = int.Parse(Console.ReadLine() ?? "0");
+
+        Console.Write("values = {");
+
+        string[] input = (Console.ReadLine() ?? "").Split(',');
+        double[] values = new double[n];
+
+        for (int i = 0, j = 0; i < input.Length && n > 0; ++i)
+        {
+            if (i == input.Length - 1 && input[i].EndsWith('}'))
+            {
+                input[i] = input[i][..^1];
+            }
+
+            if (double.TryParse(input[i], out double val))
+            {
+                values[j++] = val;
+            }
+        }
+
+        foreach (var x in values)
+        {
+            Console.WriteLine(x);
         }
     }
 }
