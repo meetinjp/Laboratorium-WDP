@@ -112,9 +112,14 @@ class Program
 
         for (int i = 0, j = 0; i < input.Length && n > 0; ++i)
         {
-            if (i == input.Length - 1 && input[i].EndsWith('}'))
+            if (i == input.Length - 1)
             {
-                input[i] = input[i][..^1];
+                var trimmedInput = input[i].Trim();
+
+                if (trimmedInput.EndsWith('}'))
+                {
+                    input[i] = trimmedInput[..^1];
+                }
             }
 
             if (double.TryParse(input[i], out double val))
