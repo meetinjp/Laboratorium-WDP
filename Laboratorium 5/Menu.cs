@@ -58,10 +58,44 @@ public static class Menu
 
                 break;
             case RemoveLast:
+                if (_names.Count <= 0)
+                {
+                    Console.WriteLine("No products to remove!");
+
+                    return;
+                }
+
+                _names.RemoveAt(_names.Count - 1);
+                _prices.RemoveAt(_prices.Count - 1);
+                Console.WriteLine("Last product removed!");
+
                 break;
             case Find:
+                Console.Write("Input product name: ");
+
+                string productNameToFind = Console.ReadLine() ?? "";
+                int index = _names.IndexOf(productNameToFind);
+
+                if (index < 0)
+                {
+                    Console.WriteLine("Product not found!");
+
+                    break;
+                }
+
+                Console.WriteLine($"{productNameToFind} - {_prices[index]}");
+
                 break;
             case TotalCost:
+                if (_prices.Count <= 0 || _names.Count <= 0)
+                {
+                    Console.WriteLine("No products to calculate total cost!");
+
+                    break;
+                }
+
+                Console.WriteLine($"Total cost: {_prices.Sum()}");
+
                 break;
             case PrintAll:
                 for (int i = 0; i < _names.Count && i < _prices.Count; ++i)
