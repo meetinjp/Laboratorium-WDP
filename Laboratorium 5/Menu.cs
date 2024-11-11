@@ -25,6 +25,9 @@ public static class Menu
         }
 
         Console.Clear();
+
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.White;
     }
 
     private static void ProcessOption(int selectedOptionIndex)
