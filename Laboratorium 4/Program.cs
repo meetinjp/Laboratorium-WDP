@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Zadanie6();
+        Zadanie9();
     }
 
     static void Zadanie1()
@@ -131,6 +131,65 @@ class Program
         foreach (var x in values)
         {
             Console.WriteLine(x);
+        }
+    }
+
+    static void Zadanie7()
+    {
+        Console.Write("n = ");
+
+        int n = int.Parse(Console.ReadLine() ?? "0");
+
+        Console.Write("m = ");
+
+        int m = int.Parse(Console.ReadLine() ?? "0");
+        char[,] chars = new char[m, n];
+
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1)
+                {
+                    chars[i, j] = '#';
+
+                    continue;
+                }
+
+                chars[i, j] = ' ';
+            }
+        }
+
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                Console.Write(chars[i, j]);
+            }
+
+            Console.WriteLine();
+        }
+    }
+
+    static void Zadanie8()
+    {
+        Console.Write("n = ");
+
+        long n = long.Parse(Console.ReadLine() ?? "0");
+
+        Console.WriteLine($"Liczba cyfr {n} to {n.ToString().Length}");
+    }
+
+    static void Zadanie9()
+    {
+        Console.Write("n = ");
+
+        int n = int.Parse(Console.ReadLine() ?? "0");
+
+        for (int i = 0; i < n; ++i)
+        {
+            Console.Write(new string(' ', i % n));
+            Console.WriteLine(new string('#', 2 * (n - i % n) - 1));
         }
     }
 }
